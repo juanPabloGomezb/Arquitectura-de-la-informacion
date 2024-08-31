@@ -44,7 +44,7 @@ File: Calendar
     CalendarApp.prototype.onEventClick =  function (calEvent, jsEvent, view) {
         var $this = this;
             var form = $("<form></form>");
-            form.append("<label>Change event name</label>");
+            form.append("<label>Cambiar Nombre de Evento</label>");
             form.append("<div class='input-group m-b-15'><input class='form-control' type=text value='" + calEvent.title + "' /><span class='input-group-append'><button type='submit' class='btn btn-success btn-md waves-effect waves-light'><i class='fa fa-check'></i> Save</button></span></div>");
             $this.$modal.modal({
                 backdrop: 'static'
@@ -71,15 +71,15 @@ File: Calendar
             var form = $("<form></form>");
             form.append("<div class='row'></div>");
             form.find(".row")
-                .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Event Name</label><input class='form-control' placeholder='Insert Event Name' type='text' name='title'/></div></div>")
-                .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Category</label><select class='form-control' name='category'></select></div></div>")
+                .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Nombre Evento</label><input class='form-control' placeholder='Insert Event Name' type='text' name='title'/></div></div>")
+                .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Categoria</label><select class='form-control' name='category'></select></div></div>")
                 .find("select[name='category']")
-                .append("<option value='bg-danger'>Danger</option>")
-                .append("<option value='bg-success'>Success</option>")
-                .append("<option value='bg-primary'>Primary</option>")
-                .append("<option value='bg-info'>Info</option>")
-                .append("<option value='bg-dark'>Dark</option>")
-                .append("<option value='bg-warning'>Warning</option></div></div>");
+                .append("<option value='bg-danger'>Eventos</option>")
+                .append("<option value='bg-success'>Uso del espacio</option>")
+                .append("<option value='bg-primary'>Mantenimiento</option>")
+                .append("<option value='bg-info'>Revision</option>")
+                .append("<option value='bg-dark'>Baja Prioridad</option>")
+                .append("<option value='bg-warning'>Alta Prioridad</option></div></div>");
             $this.$modal.find('.delete-event').hide().end().find('.save-event').show().end().find('.modal-body').empty().prepend(form).end().find('.save-event').unbind('click').click(function () {
                 form.submit();
             });
