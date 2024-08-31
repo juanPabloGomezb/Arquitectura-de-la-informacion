@@ -94,7 +94,7 @@ const addComment = (body, parentId, replyTo = undefined) => {
         : commentParent[commentParent.length - 1].id + 1,
     content: body,
     createdAt: "Now",
-    replyingTo: replyTo,
+    replyingTo: replyTo, 
     score: 0,
     replies: parent == 0 ? [] : undefined,
     user: data.currentUser,
