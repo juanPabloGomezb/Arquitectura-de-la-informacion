@@ -1,0 +1,379 @@
+:root {
+    --Moderate-blue: hsl(238, 40%, 52%);
+    --Soft-Red: hsl(358, 79%, 66%);
+    --Light-grayish-blue: hsl(239, 57%, 85%);
+    --Pale-red: hsl(357, 100%, 86%);
+    --Dark-blue: hsl(212, 24%, 26%);
+    --Grayish-Blue: hsl(211, 10%, 45%);
+    --Light-gray: hsl(223, 19%, 93%);
+    --Very-light-gray: hsl(228, 33%, 97%);
+    --White: hsl(0, 0%, 100%);
+  }
+  
+  /* Estilos generales */
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--Very-light-gray);
+      color: var(--Dark-blue);
+      padding-top: 80px;
+  }
+  
+  /* Barra de navegación fija */
+  .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: var(--White);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+  }
+  
+  .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+  
+  .logo-img {
+      height: 50px;
+  }
+  
+  .nav-menu ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+  }
+  
+  .nav-menu ul li {
+      display: inline;
+  }
+  
+  .nav-menu ul li a {
+      text-decoration: none;
+      color: var(--Dark-blue);
+      font-size: 1em;
+      font-weight: bold;
+  }
+  
+  .nav-menu ul li a:hover {
+      color: var(--Moderate-blue);
+  }
+  
+  /* Estilos mejorados para los botones de navegación */
+  .nav-buttons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+  }
+  
+  .cta-btn-nav {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.1s ease, color 0.3s ease;
+  }
+  
+  .cta-btn-nav:hover {
+      transform: translateY(-2px);
+  }
+  
+  .cta-btn-nav:active {
+      transform: translateY(0);
+  }
+  
+  .login-btn {
+      background-color: transparent;
+      color: var(--Moderate-blue);
+      border: 2px solid var(--Moderate-blue);
+  }
+  
+  .login-btn:hover {
+      background-color: var(--Light-grayish-blue);
+      color: var(--Dark-blue);
+  }
+  
+  .register-btn {
+      background-color: var(--Moderate-blue);
+      color: var(--White);
+  }
+  
+  .register-btn:hover {
+      background-color: var(--Light-grayish-blue);
+      color: var(--Dark-blue);
+  }
+  
+  /* Estilos para el menú hamburguesa */
+  .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+  }
+  
+  .hamburger, .hamburger::before, .hamburger::after {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: var(--Dark-blue);
+      position: relative;
+      transition: all 0.3s ease-in-out;
+  }
+  
+  .hamburger::before, .hamburger::after {
+      content: '';
+      position: absolute;
+  }
+  
+  .hamburger::before {
+      top: -8px;
+  }
+  
+  .hamburger::after {
+      bottom: -8px;
+  }
+  
+  /* Estilos para la sección principal */
+  .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 20px;
+      background: linear-gradient(to right, var(--Light-grayish-blue), var(--Moderate-blue));
+      color: var(--White);
+  }
+  
+  .hero h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+  }
+  
+  .hero p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+  }
+  
+  .cta-btn {
+      background-color: var(--Soft-Red);
+      color: var(--White);
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  
+  .cta-btn:hover {
+      background-color: var(--Pale-red);
+      color: var(--Dark-blue);
+  }
+  
+  .hero-image img {
+      max-width: 100%;
+      height: auto;
+  }
+  
+  /* Estilos para la sección de características */
+  .features {
+      padding: 60px 20px;
+      background-color: var(--White);
+  }
+  
+  .features h2 {
+      font-size: 2.2em;
+      margin-bottom: 40px;
+      text-align: center;
+  }
+  
+  .features-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+  }
+  
+  .feature {
+      text-align: center;
+      max-width: 250px;
+      margin-bottom: 30px;
+  }
+  
+  .feature img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 15px;
+  }
+  
+  .feature h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+  }
+  
+  .feature p {
+      font-size: 1em;
+      color: var(--Grayish-Blue);
+  }
+  
+  /* Estilos para la sección del formulario */
+  .form-section {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: var(--Light-gray);
+  }
+  
+  .form-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: var(--White);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+  }
+  
+  .form-group label {
+      flex: 1 1 100%;
+      margin-bottom: 5px;
+      text-align: left;
+      font-weight: bold;
+  }
+  
+  .form-group input,
+  .form-group select {
+      flex: 1 1 48%;
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid var(--Light-grayish-blue);
+      border-radius: 5px;
+      width: 100%;
+      box-sizing: border-box;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"] {
+      flex: 1 1 100%;
+  }
+  
+  .submit-btn {
+      background-color: var(--Moderate-blue);
+      color: var(--White);
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+  }
+  
+  .submit-btn:hover {
+      background-color: var(--Light-grayish-blue);
+      color: var(--Dark-blue);
+  }
+  
+  .contact-info {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: var(--Grayish-Blue);
+  }
+  
+  .contact-info a {
+      color: var(--Moderate-blue);
+      text-decoration: none;
+  }
+  
+  .contact-info a:hover {
+      text-decoration: underline;
+  }
+  
+  /* Estilos para dispositivos móviles */
+  @media (max-width: 768px) {
+      .menu-toggle {
+          display: block;
+      }
+  
+      .nav-menu, .nav-buttons {
+          display: none;
+          width: 100%;
+      }
+  
+      .nav-menu.active, .nav-buttons.active {
+          display: block;
+      }
+  
+      .navbar-container {
+          flex-wrap: wrap;
+      }
+  
+      .nav-menu ul {
+          flex-direction: column;
+          padding: 0;
+      }
+  
+      .nav-menu ul li {
+          text-align: center;
+          padding: 10px 0;
+      }
+  
+      .nav-buttons {
+          flex-direction: column;
+          align-items: center;
+          padding: 10px 0;
+      }
+  
+      .cta-btn-nav {
+          width: 100%;
+          margin-bottom: 10px;
+      }
+  
+      /* Animación para el menú hamburguesa */
+      .menu-toggle.active .hamburger {
+          background-color: transparent;
+      }
+  
+      .menu-toggle.active .hamburger::before {
+          transform: rotate(45deg) translate(5px, 5px);
+      }
+  
+      .menu-toggle.active .hamburger::after {
+          transform: rotate(-45deg) translate(7px, -6px);
+      }
+  
+      /* Ajustes adicionales para móviles */
+      .hero {
+          flex-direction: column;
+          text-align: center;
+      }
+  
+      .hero-image {
+          margin-top: 20px;
+      }
+  
+      .features-container {
+          flex-direction: column;
+          align-items: center;
+      }
+  
+      .feature {
+          max-width: 100%;
+      }
+  
+      .form-group input,
+      .form-group select {
+          flex: 1 1 100%;
+      }
+  }
