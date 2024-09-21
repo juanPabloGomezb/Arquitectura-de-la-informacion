@@ -291,80 +291,78 @@
                             <div class="col-sm-12">
                                 <div class="card-box">
                                     <h4 class="m-t-0 header-title">Datos Vehiculo</h4>
-                                    <p class="text-muted m-b-30 font-13">
-                                        Ingresa la informacion solicitada
-                                    </p>
-
-                                    <form id="wizard-vertical">
+                                    <p class="text-muted m-b-30 font-13">Ingresa la informacion solicitada</p>
+                        
+                                    <form id="vehiculo-form">
                                         <h3>Datos Vehiculo</h3>
                                         <section>
                                             <div class="form-group clearfix">
-                                                <label class="control-label " for="userName1">Matricula *</label>
+                                                <label class="control-label" for="matricula">Matricula *</label>
                                                 <div class="">
-                                                    <input class="form-control required" id="userName1" name="userName" type="text">
+                                                    <input class="form-control required" id="matricula" name="matricula" type="text">
                                                 </div>
                                             </div>
                                             <div class="form-group clearfix">
-                                                <label class="control-label " for="password1">Modelo*</label>
+                                                <label class="control-label" for="modelo">Modelo*</label>
                                                 <div class="">
-                                                    <input id="password1" name="password" type="text" class="required form-control">
+                                                    <input id="modelo" name="modelo" type="text" class="required form-control">
                                                 </div>
                                             </div>
-
+                        
                                             <div class="checkbox checkbox-primary">
-                                                <input id="checkbox-v" type="checkbox">
-                                                <label for="checkbox-v"> Visitante. </label>
+                                                <input id="visitante" name="visitante" type="checkbox">
+                                                <label for="visitante">Visitante</label>
                                             </div>
                                         </section>
+                        
                                         <h3>Datos Residente</h3>
                                         <section>
                                             <div class="form-group clearfix">
-
-                                                <label class="control-label" for="name1">Nombre*</label>
+                                                <label class="control-label" for="nombre">Nombre*</label>
                                                 <div class="">
-                                                    <input id="name1" name="name" type="text" class="required form-control">
+                                                    <input id="nombre" name="nombre" type="text" class="required form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group clearfix">
-                                                <label class="control-label " for="surname1">Apellidos*</label>
+                                                <label class="control-label" for="apellido">Apellidos*</label>
                                                 <div class="">
-                                                    <input id="surname1" name="surname" type="text" class="required form-control">
-
+                                                    <input id="apellido" name="apellido" type="text" class="required form-control">
                                                 </div>
                                             </div>
-
+                        
                                             <div class="form-group clearfix">
-                                                <label class="control-label " for="email1">Numero de Vivienda*</label>
+                                                <label class="control-label" for="numvivienda">Numero de Vivienda*</label>
                                                 <div class="">
-                                                    <input id="email1" name="email" type="text" class="required email form-control">
+                                                    <input id="numvivienda" name="numvivienda" type="text" class="required email form-control">
                                                 </div>
                                             </div>
-
+                        
                                             <div class="form-group clearfix">
-                                                <label class="control-label " for="address1">Telefono*</label>
+                                                <label class="control-label" for="telefono">Telefono*</label>
                                                 <div class="">
-                                                    <input id="address1" name="address" type="text" class="form-control">
+                                                    <input id="telefono" name="telefono" type="text" class="form-control">
                                                 </div>
                                             </div>
-
                                         </section>
-                                        
+                        
                                         <h3>Politica</h3>
                                         <section>
                                             <div class="form-group clearfix">
                                                 <div class="col-lg-12">
                                                     <div class="checkbox checkbox-primary">
-                                                        <input id="checkbox-v" type="checkbox">
-                                                        <label for="checkbox-v"> Estoy deacuerdo con el tratamiento de datos. </label>
+                                                        <input id="agree" name="agree" type="checkbox">
+                                                        <label for="agree">Estoy de acuerdo con el tratamiento de datos.</label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </section>
+                        
+                                        <button type="submit" class="btn btn-primary" id="submit-vehiculo">Enviar</button>
                                     </form>
-                                    <!-- End #wizard-vertical -->
-                                </div> <!-- end card-box -->
-                            </div> <!-- end col -->
-                        </div><!-- End row -->
+                                </div>
+                            </div>
+                        </div>
+                        
 
 
                     </div> <!-- end container-fluid-->
@@ -422,7 +420,7 @@
                 </div>
                 
         <!-- End #wrapper -->
-
+                <script src="assets/js/forms.js"></script>
         <!-- jQuery  -->
         <script src="assets/libs/jquery/jquery.min.js"></script>
         <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -438,6 +436,8 @@
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
+  
+        
 
     </body>
 </html>
