@@ -20,6 +20,10 @@
         <!-- build:css -->
         <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
         <!-- endbuild -->
+        <!-- Importante -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.9/push.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     </head>
 
@@ -357,7 +361,7 @@
                                             </div>
                                         </section>
                         
-                                        <button type="submit" class="btn btn-primary" id="submit-vehiculo">Enviar</button>
+                                        <button type="submit" class="btn btn-primary" id="submit-vehiculo" onclick="push()">Enviar</button>
                                     </form>
                                 </div>
                             </div>
@@ -439,6 +443,26 @@
         <script src="assets/js/jquery.app.js"></script>
                 
         
+        <script>
+            function push() {
+                console.log("Solicitud de permiso para notificaciones");
+                Push.Permission.request();
+
+                console.log("Creando notificación");
+                Push.create('Registro Exitoso', {
+                    body: 'Consulta tu nformacion',
+                    icon: 'img/logo.png',
+                    timeout: 1500000,
+                    vibrate: [100, 100, 100],
+                    onClick: function() {
+                        window.location = "tables-datatable.html";
+                        console.log("Notificación clickeada");
+                    }
+                });
+            }
+           
+        </script>
+            
 
     </body>
 </html>

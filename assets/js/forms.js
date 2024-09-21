@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (response.ok) {
                 // Si todo sale bien, redirigir a otra página o mostrar un mensaje
-                window.location.href = 'tables-datatable.html';
+                window.location.href = '#';
             }
         } catch (error) {
             console.error('Error:', error);
