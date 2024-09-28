@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   app:
     build: .
@@ -5,33 +7,51 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - MYSQL_HOST=db
+      - MYSQL_SOF_HOST=db_sofcompus
+      - MYSQL_PARKING_HOST=db_parqueadero
       - MYSQL_USER=root
       - MYSQL_PASSWORD=1234
-      - MYSQL_DATABASE=sofcompus
+      - MYSQL_DATABASE=sofcompus  # Esta es la base de datos para sofcompus
+      - MYSQL_PARKING_DATABASE=parqueadero_db  # Base de datos para el parqueadero
     depends_on:
-      - db
+      - db_sofcompus
+      - db_parqueadero
     volumes:
       - .:/usr/src/app
     networks:
       - app-network
 
-  db:
+  db_sofcompus:
     image: mysql:8
-    container_name: mysql_db
+    container_name: mysql_sofcompus
     environment:
       MYSQL_ROOT_PASSWORD: 1234
-      MYSQL_DATABASE: sofcompus
+      MYSQL_DATABASE: sofcompus  # Solo define sofcompus en esta instancia
     ports:
-      - '3306:3306'
+      - '3307:3306'  # Exponer en un puerto distinto
     volumes:
-      - db_data:/var/lib/mysql
-      - ./db-init:/docker-entrypoint-initdb.d  # Monta el script de inicialización
+      - db_sofcompus_data:/var/lib/mysql
+      - ./db-init-sofcompus:/docker-entrypoint-initdb.d  # Archivos de inicialización para sofcompus
+    networks:
+      - app-network
+
+  db_parqueadero:
+    image: mysql:8
+    container_name: mysql_parqueadero
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: parqueadero_db  # Define parqueadero_db en esta instancia
+    ports:
+      - '3308:3306'  # Exponer en un puerto distinto
+    volumes:
+      - db_parqueadero_data:/var/lib/mysql
+      - ./db-init-parqueadero:/docker-entrypoint-initdb.d  # Archivos de inicialización para parqueadero_db
     networks:
       - app-network
 
 volumes:
-  db_data:
+  db_sofcompus_data:
+  db_parqueadero_data:
 
 networks:
   app-network:

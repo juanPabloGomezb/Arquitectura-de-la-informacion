@@ -46,85 +46,12 @@
                                 <div class="dropdown-item noti-title">
                                     <h5 class="m-0"><span class="float-right"><a href="" class="text-dark"><small></small></a> </span>Notification</h5>
                                 </div>
-    
-                                <div class="slimscroll" style="max-height: 230px;">
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-warning"><i class="mdi mdi-comment-account-outline"></i></div>
-                                        <p class="notify-details">Santiago Martinezh ha comentado en el foro<small class="text-muted">Hace un minuto</small></p>
-                                    </a>
-
-    
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-danger"><i class="mdi mdi-comment-account-outline"></i></div>
-                                        <p class="notify-details">Juan Pablo Gómez te ha enviado una solicitud<small class="text-muted">Hace 4 dias </small></p>
-                                    </a>
-    
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon"><img src="assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle" alt="" /> </div>
-                                        <p class="notify-details">Esteban Parra</p>
-                                        <p class="text-muted font-13 mb-0 user-msg">Quiero hacer una reservación </p>
-                                    </a>
-    
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-primary"><i class="mdi mdi-heart"></i></div>
-                                        <p class="notify-details">Linda Caicedo Dió like a publicación<b>Admin</b><small class="text-muted">13 days ago</small></p>
-                                    </a>
+                
+                                <div class="notification-list" style="max-height: calc(80vh - 60px); overflow-y: auto; padding: 10px;" id="notification-list">
+                                    <!-- Notifications will be inserted here -->
                                 </div>
-    
-
-    
                             </div>
-                      
-                     
-                          </li>
-                         <!--<li class="dropdown notification-list">
-                            <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="false" aria-expanded="false">
-                                
-                               <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1">Usuario <i class="mdi mdi-chevron-down"></i> </span> -->
-                            </a>
-                    
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown ">
-                            
-                            
-     <!--
-                                
-                                <div class="dropdown-item noti-title">
-                                    <h6 class="text-overflow m-0">Welcome !</h6>
-                                </div>
-                            
-                            
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="dripicons-user"></i> <span>My Account</span>
-                                </a>
-    
-                                    
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="dripicons-gear"></i> <span>Settings</span>
-                                </a>
-    
-                                
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="dripicons-help"></i> <span>Support</span>
-                                </a>
-    
-                                
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="dripicons-lock"></i> <span>Lock Screen</span>
-                                </a>
-    
-                                
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="dripicons-power"></i> <span>Logout</span>
-                                </a>
-                              -->
-    
-                            </div>
-                        </li> 
+                        </li>
                         <li class="dropdown notification-list">
                             <a href="javascript:void(0);" class="nav-link right-bar-toggle">
                                 <i class="dripicons-gear noti-icon"></i>
@@ -152,7 +79,7 @@
                                 </div>
                             </a>
                         </li>
-                       
+                        
                     </ul>
                 </nav>
                 <!-- end navbar-custom -->
@@ -199,67 +126,20 @@
                             <li>
                                 <a href="javascript: void(0);"><i class="mdi mdi-file-document-box"></i><span class="menu-arrow"></span> <span> Formularios </span></a>
                                 <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="form-wizard.html">Parqueadero</a></li>
+                                    <li><a href="formparqueadero.html">Parqueaderos</a></li>
+                                    <li><a href="formvisitantes.html">visitantes</a></li>
                                 </ul>
                             </li>
 
                             <li>
                                 <a href="javascript: void(0);"><i class="mdi mdi-filter-variant"></i> <span> Historial </span> <span class="menu-arrow"></span></a>
                                 <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="tables-datatable.html">Visitantes</a></li>
+                                    <li><a href="tables-parqueadero.html">Parqueaderos</a></li>
+                                    <li><a href="historicovisitantes.html">Visitantes</a></li>
                                 </ul>
                             </li>
 
-                        <!--                          <li class="menu-title">More</li>
-
-                            <li>
-                                <a href="javascript: void(0);"><i class="mdi mdi-map"></i> <span> Maps </span> <span class="menu-arrow"></span></a>
-                                <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="maps-google.html">Google Maps</a></li>
-                                    <li><a href="maps-vector.html">Vector Maps</a></li>
-                                </ul>
-                            </li>
-                            --> 
-                            <!--
-
-                            <li>
-                                <a href="javascript: void(0);"><i class="mdi mdi-buffer"></i><span> Authentication </span> <span class="menu-arrow"></span></a>
-                                <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="auth-login.html">Log In</a></li>
-                                    <li><a href="auth-register.html">Register</a></li>
-                                    <li><a href="auth-recoverpassword.html">Recover Password</a></li>
-                                    <li><a href="auth-lock-screen.html">Lock Screen</a></li>
-                                    <li><a href="auth-404.html">Error 404</a></li>
-                                    <li><a href="auth-500.html">Error 500</a></li>    
-                                </ul>
-                            </li>
-                        -->
-                        <!--
-                            <li>
-                                <a href="javascript:void(0);"><i class="mdi mdi-google-pages"></i> <span> Pages </span> <span class="menu-arrow"></span></a>
-                                <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="pages-invoice.html">Invoice</a></li>
-                                    <li><a href="pages-pricing.html">Pricing</a></li>
-                                    <li><a href="pages-starter.html">Starter</a></li>
-                                    <li><a href="pages-timeline.html">Timeline</a></li>
-                                    <li><a href="pages-faq.html">FAQs</a></li>    
-                                </ul>
-                            </li>
-                        -->
-
-                            <!-- <li>
-                                <a href="javascript: void(0);"><i class="mdi mdi-multiplication"></i> <span> Multi Level </span> <span class="menu-arrow"></span></a>
-                                <ul class="nav-second-level nav" aria-expanded="false">
-                                    <li><a href="javascript: void(0);">Level 1.1</a></li>
-                                    <li><a href="javascript: void(0);" aria-expanded="false">Level 1.2 <span class="menu-arrow"></span></a>
-                                        <ul class="nav-third-level nav" aria-expanded="false">
-                                            <li><a href="javascript: void(0);">Level 2.1</a></li>
-                                            <li><a href="javascript: void(0);">Level 2.2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li> -->
-
+                       
                         </ul>
 
                     </div>
@@ -466,6 +346,6 @@
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
-
+        <script src="assets/micro/notificacion.js"></script>
     </body>
 </html>
