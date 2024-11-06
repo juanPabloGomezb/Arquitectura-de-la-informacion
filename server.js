@@ -9,8 +9,15 @@ const app = express();
 const port = 3000;
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://127.0.0.1:5500'],  // Permite ambos orígenes
+}));
+
+
 app.use(express.json());
+
+// Maneja solicitudes preflight OPTIONS
+app.options('*', cors());  // Esto permite solicitudes preflight desde cualquier origen
 
 // Rutas de autenticación
 app.post('/api/signup', authController.signup);
@@ -27,8 +34,10 @@ app.get('/api/notifications', notificationController.getNotifications);
 app.get('/api/status', (req, res) => {
     res.status(200).json({ message: "Servidor funcionando correctamente" });
 });
+
 // Después de definir todas tus rutas
 console.log('Rutas cargadas:', app._router.stack.filter(r => r.route).map(r => r.route.path));
+
 // Iniciar servidor
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);

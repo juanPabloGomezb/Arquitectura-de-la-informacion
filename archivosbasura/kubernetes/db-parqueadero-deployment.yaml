@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-parqueadero
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-parqueadero
+  template:
+    metadata:
+      labels:
+        app: mysql-parqueadero
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:8
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "1234"
+        - name: MYSQL_DATABASE
+          value: "parqueadero_db"
+        volumeMounts:
+        - name: mysql-volume
+          mountPath: /var/lib/mysql
+        - name: db-init-parqueadero
+          mountPath: /docker-entrypoint-initdb.d
+      volumes:
+      - name: mysql-volume
+        persistentVolumeClaim:
+          claimName: mysql-pvc-parqueadero
+      - name: db-init-parqueadero
+        hostPath:
+          path: db-init-parqueadero\init.sql  # Cambia la ruta local de tus scripts

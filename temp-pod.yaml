@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: temp-pod
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command: ["sleep", "3600"]
+    volumeMounts:
+    - mountPath: /usr/src/app
+      name: app-claim0
+  volumes:
+  - name: app-claim0
+    persistentVolumeClaim:
+      claimName: app-claim0
+  restartPolicy: Never

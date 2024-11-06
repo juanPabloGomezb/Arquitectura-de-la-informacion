@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - name: node-app
+        image: node:14-alpine
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MYSQL_SOF_HOST
+          value: "db-sofcompus"
+        - name: MYSQL_PARKING_HOST
+          value: "db-parqueadero"
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: username
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: password
+        - name: MYSQL_DATABASE
+          value: "sofcompus"
+        - name: MYSQL_PARKING_DATABASE
+          value: "parqueadero_db"
+        volumeMounts:
+        - name: app-volume
+          mountPath: /usr/src/app
+      volumes:
+      - name: app-volume
+        configMap:
+          name: node-app-files

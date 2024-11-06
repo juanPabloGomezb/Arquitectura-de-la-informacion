@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    io.kompose.service: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: app
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: app
+    spec:
+      containers:
+      - name: node-app
+        image: node-app  # Asegúrate de que esta imagen se haya construido correctamente
+        imagePullPolicy: IfNotPresent  
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MYSQL_DATABASE
+          value: sofcompus
+        - name: MYSQL_PARKING_DATABASE
+          value: parqueadero_db
+        - name: MYSQL_PARKING_HOST
+          value: db_parqueadero
+        - name: MYSQL_PASSWORD
+          value: "1234"
+        - name: MYSQL_SOF_HOST
+          value: db_sofcompus
+        - name: MYSQL_USER
+          value: root
+      restartPolicy: Always

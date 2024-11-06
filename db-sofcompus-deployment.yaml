@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: db-sofcompus
+  name: db-sofcompus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: db-sofcompus
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/app-network: "true"
+        io.kompose.service: db-sofcompus
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_DATABASE
+          value: sofcompus
+        - name: MYSQL_ROOT_PASSWORD
+          value: "1234"
+        image: mysql:8
+        imagePullPolicy: ""
+        name: mysql-sofcompus
+        ports:
+        - containerPort: 3306
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: db-sofcompus-data
+        - mountPath: /docker-entrypoint-initdb.d
+          name: db-sofcompus-claim1
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes:
+      - name: db-sofcompus-data
+        persistentVolumeClaim:
+          claimName: db-sofcompus-data
+      - name: db-sofcompus-claim1
+        persistentVolumeClaim:
+          claimName: db-sofcompus-claim1
+status: {}
