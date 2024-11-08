@@ -28,5 +28,5 @@ function loadNotifications() {
 
 $(document).ready(function() {
     loadNotifications();
-    setInterval(loadNotifications, 300000);
+    setInterval(loadNotifications, 10); // Carga las notificaciones cada 5 minutos
 });
