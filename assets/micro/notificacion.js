@@ -1,3 +1,4 @@
+// Función para cargar las notificaciones
 function loadNotifications() {
     $.ajax({
         url: 'http://localhost:3000/api/notifications', 
@@ -26,7 +27,8 @@ function loadNotifications() {
     });
 }
 
+// Cargar las notificaciones al cargar la página y actualizarlas cada 5 minutos
 $(document).ready(function() {
     loadNotifications();
-    setInterval(loadNotifications, 10); // Carga las notificaciones cada 5 minutos
+    setInterval(loadNotifications, 30000); // Carga cada 5 minutos (300000 ms)
 });

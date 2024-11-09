@@ -27,8 +27,12 @@ app.post('/api/login', authController.login);
 app.post('/api/parking/addVehicle', parkingController.addVehicle);
 app.get('/api/parking/getVehicles', parkingController.getVehicles);
 
-// Ruta para notificaciones
+// Ruta para obtener las notificaciones
 app.get('/api/notifications', notificationController.getNotifications);
+
+// Ruta para crear una notificación desde el formulario
+app.post('/api/notifications/create', notificationController.createNotification);
+
 
 // Ruta para verificar el estado del servidor
 app.get('/api/status', (req, res) => {

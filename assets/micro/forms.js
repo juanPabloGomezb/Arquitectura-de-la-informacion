@@ -2,22 +2,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("vehiculo-form");
     
     form.addEventListener("submit", async (event) => {
-        event.preventDefault(); // Evitar el envío del formulario por defecto
+        event.preventDefault(); // Evita el envío automático del formulario
 
-        // Captura de datos del formulario
-        const formData = new FormData(form);
         const data = {
-            matricula: formData.get("matricula"),
-            modelo: formData.get("modelo"),
-            visitante: formData.get("visitante") ? 1 : 0, // Convertir a 1 o 0
-            nombre: formData.get("nombre"),
-            apellido: formData.get("apellido"),
-            numvivienda: formData.get("numvivienda"),
-            telefono: formData.get("telefono"),
+            matricula: document.getElementById("matricula").value,
+            modelo: document.getElementById("modelo").value,
+            visitante: document.getElementById("visitante").checked ? 1 : 0,
+            nombre: document.getElementById("nombre").value,
+            apellido: document.getElementById("apellido").value,
+            numvivienda: document.getElementById("numvivienda").value,
+            telefono: document.getElementById("telefono").value
         };
 
         try {
-            // Envío de datos al servidor
+            // Envía los datos al servidor para agregar el vehículo
             const response = await fetch("http://localhost:3000/api/parking/addVehicle", {
                 method: "POST",
                 headers: {
@@ -26,31 +24,49 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify(data),
             });
 
-            // Manejo de la respuesta
+            // Manejo de la respuesta para el primer envío
             if (response.ok) {
                 const jsonResponse = await response.json();
-                alert(jsonResponse.message); // Muestra un mensaje de éxito
-                push()
+                alert(jsonResponse.message);
+                push(); // Llama a la función de notificación
                 form.reset(); // Reinicia el formulario
             } else {
                 const errorResponse = await response.json();
-                alert(errorResponse.message); // Muestra el mensaje de error
+                alert(errorResponse.message);
             }
+
+            // Envía los datos al servidor para las notificaciones
+            const notifyResponse = await fetch("http://localhost:3000/api/notifications/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (notifyResponse.ok) {
+                const notifyResult = await notifyResponse.json();
+                console.log(notifyResult.message);
+                loadNotifications(); // Actualiza la lista de notificaciones
+            } else {
+                console.error("Error al crear la notificación");
+            }
+
         } catch (error) {
-            console.error("Error al enviar el formulario:", error);
-            alert("Error al enviar el formulario");
+            console.error("Error al enviar los datos:", error);
         }
     });
 });
+
 function push() {
     console.log("Solicitud de permiso para notificaciones");
     Push.Permission.request();
 
     console.log("Creando notificación");
     Push.create('Registro Exitoso', {
-        body: 'Consulta tu nformacion',
+        body: 'Consulta tu información',
         icon: 'img/logo.png',
-        timeout: 1500000,
+        timeout: 5000,
         vibrate: [100, 100, 100],
         onClick: function() {
             window.location = "tables-parqueadero.html";
